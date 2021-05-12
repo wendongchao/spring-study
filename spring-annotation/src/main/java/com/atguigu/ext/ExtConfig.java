@@ -21,12 +21,14 @@ import org.springframework.context.annotation.Configuration;
  * 			1）、直接在BeanFactory中找到所有类型是BeanFactoryPostProcessor的组件，并执行他们的方法
  * 			2）、在初始化创建其他组件前面执行
  *
- * 2、BeanDefinitionRegistryPostProcessor extends BeanFactoryPostProcessor
+ * 2、BeanDefinitionRegistryPostProcessor extends BeanFactoryPostProcessor bean后置注册处理器
  * 		postProcessBeanDefinitionRegistry();
  * 		在所有bean定义信息将要被加载，bean实例还未创建的；
  *
  * 		优先于BeanFactoryPostProcessor执行；
  * 		利用BeanDefinitionRegistryPostProcessor给容器中再额外添加一些组件；
+ * 	在标准初始化之后，修改应用程序上下文的内部bean定义注册表。所有常规bean定义都将已加载，
+ * 	但尚未实例化任何bean。这允许在下一个后处理阶段开始之前添加更多的bean定义。
  *
  * 	原理：
  * 		1）、ioc创建对象

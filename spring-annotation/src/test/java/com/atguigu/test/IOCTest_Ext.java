@@ -27,8 +27,7 @@ public class IOCTest_Ext {
 
 
         //发布事件；
-        applicationContext.publishEvent(new ApplicationEvent(new String("我发布的时间")) {
-        });
+        applicationContext.publishEvent(new ApplicationEvent(new String("我发布的时间")) {});
 
         applicationContext.close();
     }

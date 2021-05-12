@@ -28,6 +28,11 @@ public class MyBeanDefinitionRegistryPostProcessor implements BeanDefinitionRegi
     public void postProcessBeanDefinitionRegistry(BeanDefinitionRegistry registry) throws BeansException {
         // TODO Auto-generated method stub
         System.out.println("postProcessBeanDefinitionRegistry...bean的数量："+registry.getBeanDefinitionCount());
+        /**
+         * 自定义添加bean定义信息，
+         * 可以使用 new RootBeanDefinition
+         * 也可以使用 BeanDefinitionBuilder
+         */
         //RootBeanDefinition beanDefinition = new RootBeanDefinition(Blue.class);
         AbstractBeanDefinition beanDefinition = BeanDefinitionBuilder.rootBeanDefinition(Blue.class).getBeanDefinition();
         registry.registerBeanDefinition("hello", beanDefinition);

@@ -11,6 +11,11 @@ import org.springframework.stereotype.Service;
 @Service
 public class UserService {
 
+    /**
+     * classes={ApplicationEvent.class}：要监听的那些事件，可以写多个
+     * 事件发生后如果要拿到事件，那么在参数位置填写 ApplicationEvent event
+     * @param event
+     */
     @EventListener(classes={ApplicationEvent.class})
     public void listen(ApplicationEvent event){
         System.out.println("UserService。。监听到的事件："+event);
