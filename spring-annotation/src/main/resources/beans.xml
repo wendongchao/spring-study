@@ -16,7 +16,7 @@
     <context:component-scan base-package="com.atguigu"></context:component-scan>
     <!--id：为bean的名称，class为bean的返回值类型-->
     <bean id="person" class="com.atguigu.bean.Person"  scope="prototype" >
-        <property name="age" value="${}"></property>
+        <property name="age" value="22"></property>
         <property name="name" value="zhangsan"></property>
     </bean>
 
