@@ -22,6 +22,7 @@ import org.springframework.context.annotation.Primary;
  * 			可以使用@Autowired(required=false);
  * 		5）、@Primary：让Spring进行自动装配的时候，默认使用首选的bean；
  * 				也可以继续使用@Qualifier指定需要装配的bean的名字
+ * 			    同时使用@Qualifier和@Primary那么会有先使用@Qualifier指定装配的组件ID，@Qualifier > @Primary
  * 		BookService{
  * 			@Autowired
  * 			BookDao  bookDao;
