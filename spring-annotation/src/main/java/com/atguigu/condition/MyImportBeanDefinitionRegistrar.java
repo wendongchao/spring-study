@@ -19,7 +19,8 @@ public class MyImportBeanDefinitionRegistrar implements ImportBeanDefinitionRegi
         boolean definition = registry.containsBeanDefinition("com.atguigu.bean.Red");
         boolean definition2 = registry.containsBeanDefinition("com.atguigu.bean.Blue");
         if(definition && definition2){
-            //指定Bean定义信息；（Bean的类型，Bean。。。）
+            //BeanDefinition:bean的结构定义信息
+            //指定Bean定义信息；（Bean的类型，Bean定义信息）
             RootBeanDefinition beanDefinition = new RootBeanDefinition(RainBow.class);
             //注册一个Bean，指定bean名
             registry.registerBeanDefinition("rainBow", beanDefinition);
