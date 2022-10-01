@@ -15,5 +15,6 @@ public class IOCTest_LifeCycle {
         //applicationContext.getBean("car");
         //关闭容器
         applicationContext.close();
+
     }
 }

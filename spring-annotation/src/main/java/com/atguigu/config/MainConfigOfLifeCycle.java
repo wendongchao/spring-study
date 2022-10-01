@@ -19,7 +19,8 @@ import org.springframework.context.annotation.Scope;
  *
  * BeanPostProcessor.postProcessBeforeInitialization
  * 初始化：
- * 		对象创建完成，并赋值好，调用初始化方法。。。
+ * 		单实例：对象创建完成，并赋值好，调用初始化方法。。。
+ * 	    多实例：对象第一调用时，创建对象，并调用初始化方法
  * BeanPostProcessor.postProcessAfterInitialization
  * 销毁：
  * 		单实例：容器关闭的时候
@@ -42,7 +43,7 @@ import org.springframework.context.annotation.Scope;
  *
  * 1）、指定初始化和销毁方法；
  * 		通过@Bean指定init-method和destroy-method；
- * 2）、通过让Bean实现InitializingBean（定义初始化逻辑），
+ * 2）、通过让Bean实现 InitializingBean（定义初始化逻辑），时机：beanFactory创建好后，并把所有bean属性设置完毕
  * 				DisposableBean（定义销毁逻辑）;
  * 3）、可以使用JSR250；
  * 		@PostConstruct（方法上）：在bean创建完成并且属性赋值完成；来执行初始化方法
@@ -63,10 +64,7 @@ import org.springframework.context.annotation.Scope;
 @Configuration
 public class MainConfigOfLifeCycle {
 
-    // 作用域：
-    //    单实例：在容器启动时创建对象，调用构造方法，对象创建完成并赋值好，调用初始化方法，容器关闭，调用销毁方法
-    //    多实例：每次获取时创建对象，调用构造方法，对象创建完成并赋值好，调用初始化方法，销毁时不会管理这个bean
-    @Scope("prototype")
+//    @Scope("prototype")
     // 注解指定初始化，销毁方法
     @Bean(initMethod="init",destroyMethod="detory")
     public Car car(){
